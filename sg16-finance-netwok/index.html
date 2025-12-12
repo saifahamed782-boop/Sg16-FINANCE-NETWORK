@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content" />
+    <title>Sg16 Finance - Intelligent Capital</title>
+    <meta name="description" content="Sg16 Finance: Premium AI-Driven Capital Network. Identity Verification and Financial Analysis.">
+    
+    <!-- PWA & Mobile Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#030407">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+              mono: ['Space Grotesk', 'monospace'],
+            },
+            colors: {
+              gold: {
+                50: '#FDFBF4',
+                100: '#F9F1D8',
+                200: '#ECDDA0',
+                300: '#DFC268',
+                400: '#D4AF37',
+                500: '#B8860B',
+                600: '#966D08',
+                700: '#755405',
+                800: '#543C03',
+                900: '#332402',
+                950: '#1A1201',
+              },
+              luxury: {
+                950: '#020202',
+                900: '#050505',
+                800: '#0A0A0A',
+              },
+              tech: {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                200: '#e2e8f0',
+                300: '#cbd5e1',
+                400: '#94a3b8',
+                500: '#64748b',
+                600: '#475569',
+                700: '#334155',
+                800: '#1e293b',
+                900: '#0f172a',
+                950: '#020617',
+              }
+            },
+            animation: {
+              'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 15s ease-in-out infinite',
+              'shine': 'shine 3s linear infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'scan-line': 'scanLine 8s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                '50%': { transform: 'translateY(-10px) scale(1.02)' },
+              },
+              shine: {
+                '0%': { backgroundPosition: '200% center' },
+                '100%': { backgroundPosition: '-200% center' },
+              },
+              scanLine: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100vh)' }
+              }
+            },
+            backgroundImage: {
+              'gold-gradient': 'linear-gradient(135deg, #996515 0%, #D4AF37 40%, #B8860B 60%, #5E4305 100%)', 
+              'gold-text': 'linear-gradient(to bottom, #F0D586 0%, #B8860B 60%, #805C06 100%)',
+              'luxury-gradient': 'linear-gradient(to bottom, #020202, #0A0A0A)',
+              'deep-map': 'radial-gradient(circle at 50% 50%, #0A0A0A 0%, #020202 100%)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #030407;
+        color: white;
+        overflow-x: hidden;
+      }
+      .bg-world-map {
+        background-color: #030407;
+        /* Premium Multi-Layer Background */
+        background-image: 
+          /* Deep Vignette */
+          radial-gradient(circle at 50% 50%, rgba(5, 5, 8, 0) 40%, #030407 100%),
+          /* Subtle Texture */
+          url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        background-attachment: fixed;
+      }
+      .text-gradient-gold {
+        background: linear-gradient(to bottom, #F9F1D8, #D4AF37, #966D08);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+      }
+      .glass-panel {
+        background: rgba(15, 15, 20, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.03); 
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      }
+      .glass-panel-premium {
+        background: rgba(8, 8, 10, 0.7);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(184, 134, 11, 0.15);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+      }
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #020202; }
+      ::-webkit-scrollbar-thumb { background: #543C03; border-radius: 2px; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "vite": "https://esm.sh/vite@^7.2.7",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-world-map min-h-screen selection:bg-gold-600 selection:text-white">
+    <div id="root"></div>
+    <!-- Vite Entry Point -->
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('SW Registered'))
+            .catch(err => console.log('SW Error:', err));
+        });
+      }
+    </script>
+  </body>
+</html>

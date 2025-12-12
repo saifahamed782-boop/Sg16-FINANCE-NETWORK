@@ -1,0 +1,8 @@
+{
+  "name": "Sg16 Finance Netwok ",
+  "description": "Next-generation automated loan matching system powered by Gemini AI. Features real-time face verification and document analysis.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
