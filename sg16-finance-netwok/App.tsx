@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { AiVerification } from './components/AiVerification';
@@ -31,27 +30,29 @@ const COUNTRIES: Record<CountryCode, CountryConfig> = {
 const BackgroundEffects: React.FC = () => (
   <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-luxury-950">
     
-    {/* Deep Atmospheric Glows */}
-    <div className="absolute top-0 left-0 w-full h-[50vh] bg-gradient-to-b from-blue-900/10 to-transparent opacity-40 mix-blend-screen"></div>
-    <div className="absolute bottom-0 right-0 w-full h-[50vh] bg-gradient-to-t from-gold-900/10 to-transparent opacity-30 mix-blend-screen"></div>
+    {/* 1. Deep Base Vignette - Focuses Center */}
+    <div className="absolute inset-0 bg-deep-map opacity-90"></div>
 
-    {/* World Map SVG - Deep & Living */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110vw] max-w-[1600px] text-gold-500/20 animate-float">
-       {/* Dropshadow for depth */}
-       <div className="absolute inset-0 blur-xl bg-gold-500/5 rounded-full scale-90"></div>
+    {/* 2. World Map SVG - Deep & Living */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110vw] max-w-[1600px] text-gold-500/10 animate-float opacity-40">
+       {/* Dropshadow for 3D depth */}
+       <div className="absolute inset-0 blur-2xl bg-black rounded-full scale-90"></div>
        
-      <svg viewBox="0 0 1000 450" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_15px_rgba(184,134,11,0.1)]">
+      <svg viewBox="0 0 1000 450" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_25px_rgba(184,134,11,0.05)]">
         <path d="M784.6,128.9c-2.3-1.4-5.9-2.2-7.8-0.8c-2.1,1.5-3.3,4.9-3.3,7.4c0,2.1,1.2,4.8,3.1,5.8c1.6,0.9,4.3,0.3,5.9-0.5 c2.7-1.4,4.7-4.1,4.9-7.1C787.5,131.7,786.5,130,784.6,128.9z M760.3,138.8c-1.3,0.3-2.6,0.9-3.7,1.8c-1.6,1.4-2.4,3.5-2.2,5.6 c0.2,2.3,1.6,4.3,3.6,5.4c2.5,1.4,5.8,1.1,8.1-0.5c1.7-1.2,2.9-3.1,3.2-5.1c0.3-2.1-0.5-4.3-2-5.8C765.7,138.9,763,138.1,760.3,138.8z M808.3,95.4c-1.8,0.7-3.4,2.2-4.2,4c-0.8,1.8-0.6,4.1,0.5,5.8c1.3,2,3.9,3.1,6.2,2.7c2.3-0.5,4.3-2.3,4.9-4.6 c0.5-1.9-0.1-4-1.4-5.5C813.1,96.5,810.8,95.6,808.3,95.4z M707.3,143.6c-2.5-0.7-5.4,0.3-6.9,2.5c-1.4,1.9-1.2,4.8,0.4,6.5 c1.7,1.8,4.5,2.4,6.8,1.4c2.2-0.9,3.8-3.3,3.9-5.7C711.6,146.1,709.8,144.2,707.3,143.6z M193.3,101.4c-2.8,0.4-5.2,2.6-5.8,5.4 c-0.6,2.5,0.4,5.4,2.5,7c2.2,1.7,5.5,1.7,7.7,0.1c2.1-1.6,3.3-4.5,2.8-7.1C199.9,103.9,197,101.3,193.3,101.4z M158.4,124.8 c-1.6,0.3-3,1.3-4,2.6c-1.5,2.1-1.5,5.1,0.1,7.2c1.7,2.2,4.8,2.9,7.2,1.7c2.3-1.2,3.8-3.9,3.4-6.5C164.8,127,162,124.6,158.4,124.8z M235.3,146.4c-1.8-1.5-4.6-2.1-6.8-1.3c-2.4,0.9-4.2,3.3-4.4,5.9c-0.2,2.7,1.4,5.3,3.9,6.5c2.5,1.3,5.7,0.8,7.6-1.1 c1.8-1.9,2.4-4.9,1.3-7.3C236.6,148.1,236.1,147.2,235.3,146.4z M584,287.6c-1.4,1.5-1.8,3.9-1,5.8c0.8,1.9,2.8,3.2,4.9,3.2 c2.1,0,4.2-1.3,5-3.2c0.9-2.1,0.2-4.7-1.5-6.1C589.6,285.6,586.3,286,584,287.6z M642.3,267.8c-1.9,1.1-3,3.3-2.8,5.4 c0.2,2.1,1.7,4,3.7,4.8c2.1,0.9,4.6,0.3,6.1-1.3c1.5-1.7,1.9-4.2,1-6.3C649.3,268.2,646.1,266.8,642.3,267.8z M610.1,299.1 c-1.9,1-3.1,3.1-3.1,5.2c0,2.2,1.2,4.3,3.2,5.3c2.2,1.2,4.9,0.7,6.6-1.1c1.8-1.8,2.2-4.7,1-6.9C616.4,299.2,613.3,298.2,610.1,299.1z M861.1,357.6c-2.2-0.5-4.5,0.7-5.7,2.7c-1.2,1.9-1.1,4.5,0.3,6.3c1.5,1.9,4.1,2.8,6.4,2c2.2-0.7,3.9-2.9,4.1-5.3 C866.4,360.7,864.4,358.3,861.1,357.6z M273.4,342.9c-2.2,0.6-4,2.5-4.5,4.8c-0.5,2.4,0.5,4.9,2.4,6.4c1.9,1.6,4.6,1.6,6.5,0.1 c1.9-1.5,3-4,2.5-6.4C279.7,345.1,277,342.7,273.4,342.9z M214.3,303.4c-1.4,0.3-2.6,1.2-3.4,2.3c-1.2,1.8-1.3,4.1-0.3,6 c1.1,2,3.3,3.2,5.6,3.1c2.2-0.1,4.3-1.6,5.1-3.7c0.8-2.1,0.2-4.6-1.5-6.1C218.4,303.8,216.3,303.2,214.3,303.4z M905.3,184.8 c-2.3,0.3-4.3,2-5,4.2c-0.7,2.2-0.1,4.7,1.6,6.3c1.7,1.6,4.3,2,6.4,0.9c2.1-1.1,3.4-3.4,3.2-5.7C911.3,187.7,908.9,185.3,905.3,184.8 z" opacity="0.8"/>
         <path d="M500,0C223.9,0,0,223.9,0,500s223.9,500,500,500s500-223.9,500-500S776.1,0,500,0z M885.5,176.6c1.1,4.4,0.6,9.1-1.4,13.2 c-2.2,4.6-6.2,8-11.1,9.4c-4.9,1.4-10.2,0.4-14.2-2.7c-4-3.1-6.6-7.7-7-12.7c-0.4-5.1,1.9-10,6.1-13.4c4.1-3.3,9.4-4.5,14.4-3.2 C880.5,168.7,884.2,172.1,885.5,176.6z M789.6,128.9c3.9,2.3,6.2,6.7,5.7,11.2c-0.5,4.6-3.8,8.5-8.2,9.9c-4.4,1.4-9.3-0.1-12.4-3.7 c-3.1-3.6-3.9-8.7-2-13c1.9-4.3,6.3-7.2,11-7.2C785.6,126.1,787.7,127.1,789.6,128.9z M764.1,139.7c4.6-1.2,9.4,0.3,12.5,4 c3.1,3.7,3.7,8.9,1.5,13.1c-2.2,4.2-6.9,6.9-11.6,6.6c-4.7-0.3-9-3.3-10.8-7.7c-1.8-4.4-0.8-9.4,2.6-12.7 C760,141.4,762,140.2,764.1,139.7z M810.2,96.3c4.2,0.3,8,3,9.8,6.8c1.8,3.9,1.3,8.4-1.3,11.8c-2.6,3.4-6.8,5.2-11.1,4.7 c-4.2-0.5-8-3.4-9.7-7.4c-1.6-4,0.8-8.6,4.6-11.1C805,99.5,807.7,98.6,810.2,96.3z M707.3,143.6c4.1,1.1,7.2,4.5,7.9,8.7 c0.7,4.2-1.3,8.4-5,10.8c-3.7,2.4-8.4,2.3-11.9-0.2c-3.5-2.5-5.2-6.8-4.2-11C695.1,146.7,699.9,143.2,707.3,143.6z M586.2,286.9 c3.9-2.7,9.3-2.8,13.3-0.2c4,2.6,6.1,7.3,5.2,12c-0.9,4.7-4.4,8.5-8.9,9.7c-4.5,1.2-9.4-0.4-12.6-4.1c-3.2-3.7-4-8.9-1.9-13.3 C582.5,289,584.2,287.8,586.2,286.9z M643.1,267.7c6.6-1.7,13.4,1.4,16.5,7.5c3.1,6.1,1.6,13.6-3.7,18c-5.3,4.4-12.9,4.2-18-0.5 c-5.1-4.7-6.2-12.4-2.6-18.3C637,270.6,639.8,268.5,643.1,267.7z M610.1,299.1c5.4-1.5,11,1.1,13.7,6.1c2.6,5.1,1.4,11.3-3.1,15 c-4.4,3.7-10.9,3.5-15.1-0.4c-4.2-3.9-5.2-10.4-2.2-15.3C605,301.6,607.3,299.8,610.1,299.1z M861.1,357.6c3.8,1.2,6.5,4.7,6.8,8.7 c0.3,4-2,7.7-5.6,9.5c-3.6,1.8-8,1.2-11-1.5c-3-2.7-4.1-6.9-2.8-10.7C849.8,360,854.7,357,861.1,357.6z M273.4,342.9 c6-0.3,11.3,3.3,13.1,8.9c1.9,5.7-0.5,11.9-5.7,14.9c-5.2,3-11.8,2.1-16.1-2.2c-4.3-4.3-4.8-11-1.1-15.9 C266,345.5,269.5,343.1,273.4,342.9z M214.3,303.4c2.5-0.2,5,0.7,6.8,2.5c4,4,4,10.5-0.1,14.5c-4,4-10.5,4-14.5-0.1 c-4-4.1-3.9-10.6,0.2-14.6C208.7,303.8,211.5,303,214.3,303.4z M193.3,101.4c6.3-0.2,11.8,4.1,13.2,10.2c1.4,6.2-1.9,12.5-7.7,15 c-5.8,2.5-12.6-0.1-15.8-5.9c-3.2-5.9-2.1-13.1,2.8-17.8C188,102,190.6,101.5,193.3,101.4z M158.4,124.8c4,0.1,7.5,2.6,9.1,6.3 c1.6,3.7,0.7,8-2.3,10.9c-2.9,2.8-7.4,3.6-11,2c-3.6-1.6-6-5.4-5.8-9.3C148.5,129.5,152.8,125.6,158.4,124.8z M235.3,146.4 c3.9,1.4,6.4,5.4,6.2,9.6c-0.2,4.2-3.1,7.9-7.1,9.1c-4,1.2-8.3-0.4-10.7-3.9c-2.4-3.5-2.3-8.2,0.4-11.6 C226.7,147.2,230.9,145.4,235.3,146.4z" />
       </svg>
       
-      {/* Radar Scan Effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gold-500/20 to-transparent h-[10px] w-full blur-md animate-scan-line opacity-50"></div>
+      {/* 3. AI Radar Scan Effect - The "Automatic System" visualization */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-gold-500/10 to-transparent blur-md animate-scan-line"></div>
     </div>
 
-    {/* Floating Orbs for "Softness" */}
-    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-600/5 rounded-full blur-[120px] animate-pulse-slow"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[150px] animate-float" style={{ animationDelay: '2s' }}></div>
+    {/* 4. Atmospheric Orbs - Soft but Deep */}
+    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-900/5 rounded-full blur-[150px] animate-pulse-slow mix-blend-screen"></div>
+    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-950/20 rounded-full blur-[100px] animate-pulse-slow mix-blend-screen" style={{ animationDelay: '4s' }}></div>
+
+    {/* 5. HUD Grid Overlay */}
+    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:100px_100px] opacity-20"></div>
   </div>
 );
 
@@ -258,7 +259,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen font-sans pb-20">
+    <div className="min-h-screen font-sans pb-20 relative">
       <BackgroundEffects />
       <Navbar onInstallApp={deferredPrompt ? handleInstallClick : undefined} />
 
@@ -293,7 +294,7 @@ const App: React.FC = () => {
             {/* Action Section */}
             <div className="grid md:grid-cols-2 gap-8">
                {/* Hero Action Card */}
-               <div className="relative group overflow-hidden rounded-3xl p-10 border border-gold-600/20 bg-luxury-900">
+               <div className="relative group overflow-hidden rounded-3xl p-10 border border-gold-600/20 bg-luxury-900/80 backdrop-blur-md">
                  {/* Decorative Glow */}
                  <div className="absolute top-0 right-0 w-64 h-64 bg-gold-600/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                  
